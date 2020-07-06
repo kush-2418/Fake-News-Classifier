@@ -25,8 +25,8 @@ lemma = WordNetLemmatizer()
 
 def main():
     def load_models():
-        model = pickle.load(open('/Users/kush/Downloads/Fake News Classifier/mnb_model.pkl', 'rb'))
-        vec = pickle.load(open('/Users/kush/Downloads/Fake News Classifier/tfidf_vec.pkl', 'rb'))
+        model = pickle.load(open('mnb_model.pkl', 'rb'))
+        vec = pickle.load(open('tfidf_vec.pkl', 'rb'))
 
         return model,vec
     
