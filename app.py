@@ -10,12 +10,13 @@ Created on Mon Jul  6 14:43:02 2020
 import streamlit as st
 import pickle
 import numpy as np
+import nltk
+nltk.download('stopwords')
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 from bs4 import BeautifulSoup
 import re,string
-from nltk.corpus import stopwords
 
 stop_words = set(stopwords.words('english'))
 punctuation = list(string.punctuation)
@@ -46,10 +47,13 @@ def main():
         return text
    
     model,vec = load_models()
+     
+    local_css("style.css")
+    st.markdown("<body style='background-color:#FF0000;'></body>",unsafe_allow_html=True)
 
-    st.markdown("<body style='background-color:orange;'><h1 style='text-align: center; color: white;'>Fake News Classifier</h1></body>", unsafe_allow_html=True)
-    st.markdown("<body style='background-color:white;'><h2 style='text-align: center; color: blue;'> Predict on News</h2></body>", unsafe_allow_html=True)
-    st.markdown("<body style='background-color:white;'><h3 style='text-align: center; color: red;'> Enter the text to know whether it's Fake or Real 👇</h3></body>", unsafe_allow_html=True)
+    st.markdown("<body style='background-color:orange;'><h1 style='text-align: center; color: black;'>Fake News Classifier</h1></body>", unsafe_allow_html=True)
+    st.markdown("<body style='background-color:#101010;'><h2 style='text-align: center; color: blue;'> Predict on News</h2></body>", unsafe_allow_html=True)
+    st.markdown("<body style='background-color:#101010;'><h3 style='text-align: center; color: red;'> Enter the text to know whether it's Fake or Real 👇</h3></body>", unsafe_allow_html=True)
     news = st.text_input("")
 
     if st.button('Predict'):
