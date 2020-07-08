@@ -1,0 +1,8 @@
+body {
+    color: #fff;
+    background-color: #101010;
+}
+
+.stTextInput>div>div>input {
+    color:#101010 ;
+}
