@@ -25,6 +25,10 @@ ps = PorterStemmer()
 lemma = WordNetLemmatizer()
 
 def main():
+    def local_css(file_name):
+        with open(file_name) as f:
+            st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
     def load_models():
         model = pickle.load(open('mnb_model.pkl', 'rb'))
         vec = pickle.load(open('tfidf_vec.pkl', 'rb'))
